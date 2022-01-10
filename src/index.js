@@ -13,19 +13,28 @@ function clearFields() {
     $('.showImg').text("");
   }
   
-  function getInfo(response, image) {
+  function getInfo(response) {
     if (response.forms) {
       $('.showName').text(`${response.forms[0].name}`);
-      $('.showImg').image(`${response.forms[0].name}`);
-    } else {
+      } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
+  }
+
+  function getImg(response){
+    console.log(response);
+      if (response) {
+        $('.showImg').html(`<img src=${response}>`);
+      } else {
+        $('.showErrors').text(`There was an error: ${response}`);
+      }
   }
   
   async function makeApiCall(number) {
     const response = await PokemonName.getPokemon(number);
     const image = await PokemonName.displayPokemon(number);
-    getInfo(response, image);
+    getInfo(response);
+    getImg(response);
   }
   
   $(document).ready(function() {
