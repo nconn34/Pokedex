@@ -16,25 +16,26 @@ function clearFields() {
   function getInfo(response) {
     if (response.forms) {
       $('.showName').text(`${response.forms[0].name}`);
+      $('.showImg').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
   }
 
-  function getImg(response){
-    console.log(response);
-      if (response) {
-        $('.showImg').html(`<img src=${response}>`);
-      } else {
-        $('.showErrors').text(`There was an error: ${response}`);
-      }
-  }
+//   function getImg(response){
+//     console.log(response);
+//       if (response) {
+//         $('.showImg').html(`<img src=${response.}>`);
+//       } else {
+//         $('.showErrors').text(`There was an error: ${response}`);
+//       }
+//   }
   
   async function makeApiCall(number) {
     const response = await PokemonName.getPokemon(number);
-    const image = await PokemonName.displayPokemon(number);
+    // const image = await PokemonName.displayPokemon(number);
     getInfo(response);
-    getImg(response);
+    // getImg(response);
   }
   
   $(document).ready(function() {
@@ -45,60 +46,3 @@ function clearFields() {
     });
   });
 
-// function clearFields() {
-//   $('#name').val("");
-//   $('.showErrors').text("");
-//   // $('.showPokemonInfo').text("");
-// }
-
-// function getElements(response) {
-//   if (response.main) {
-//     // $('.showPokemonInfo').text(`insert pokemon info for ${pokemonInfo} `);
-//   } else {
-//         $('.showErrors').text(`There was an error: ${response.message}`);
-// }
-
-// $(document).ready(function() {
-//   $(`#pokemon?`).click(function() {
-//     let pokemon = $(`#pokemon`).val();
-//     clearFields()
-//     PokemonService.getPokemon(name)
-//       .then(function(response) {
-//         getElements(response)
-//       })
-//   })
-// }
-
-
-
-
-// function clearFields() {
-//   $('#city').val("");
-//   $('#state').val("");
-//   $('.showErrors').text("");
-//   $('.showHumidity').text("");
-//   $('.showTemp').text("");
-//   $('.showWindSpeed').text("");
-// }
-
-// function getElements(response) {
-//   if (response.main) {
-//     $('.showHumidity').text(`The humidity in ${response.name} is ${response.main.humidity}%`);
-//     $('.showTemp').text(`The temperature ${response.main.temp} degrees Kelvin, or ${tempConverter(response.main.temp)} degrees Fahrenheit.`);
-//     $('.showWindSpeed').text(`The wind speed is ${response.wind.speed} m/s.`);
-//   } else {
-//     $('.showErrors').text(`There was an error: ${response.message}`);
-//   }
-// }
-
-// $(document).ready(function() {
-//   $('#weatherLocation').click(function() {
-//     const city = $('#city').val();
-//     const state = $('#state').val();
-//     clearFields();
-//     WeatherService.getWeather(city, state)
-//       .then(function(response) {
-//         getElements(response);
-//       });
-//   });
-// });
