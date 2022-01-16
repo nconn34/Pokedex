@@ -17,7 +17,7 @@ function clearFields() {
     if (response.forms) {
       $('.showName').text(`${response.forms[0].name}`);
       $('.showImg').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
-      $('.showHabitat').text(`${response.}`)
+      // $('.showHabitat').text(`${response.}`)
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
