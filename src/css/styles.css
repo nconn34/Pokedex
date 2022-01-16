@@ -1,3 +1,17 @@
 body {
   background-color: rgb(243, 243, 92);
 }
+.container {
+  padding: 50px;
+  margin: 0 auto;
+}
+
+/* .card {
+  list-style: none;
+  padding: 40px;
+  background-color: #f4f4f4;
+  color: #222;
+  text-align: center;
+} */
+
+
