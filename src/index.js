@@ -17,25 +17,15 @@ function clearFields() {
     if (response.forms) {
       $('.showName').text(`${response.forms[0].name}`);
       $('.showImg').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
+      $('.showHabitat').text(`${response.}`)
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
   }
-
-//   function getImg(response){
-//     console.log(response);
-//       if (response) {
-//         $('.showImg').html(`<img src=${response.}>`);
-//       } else {
-//         $('.showErrors').text(`There was an error: ${response}`);
-//       }
-//   }
   
   async function makeApiCall(number) {
     const response = await PokemonName.getPokemon(number);
-    // const image = await PokemonName.displayPokemon(number);
     getInfo(response);
-    // getImg(response);
   }
   
   $(document).ready(function() {
