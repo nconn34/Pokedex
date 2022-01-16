@@ -1,4 +1,3 @@
-
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
@@ -15,12 +14,38 @@ function clearFields() {
   
   function getInfo(response) {
     if (response.forms) {
-      $('.showName').text(`${response.forms[0].name}`);
+      $('.showName').text(`Name: ${response.forms[0].name}`);
       $('.showImg').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
-      $('.showHabitat').text(`${response.}`)
+      $('.showAbilities').text(`Abilities: ${getAbilities(response.abilities)}`);
+      $('.showMoves').text(`Moves: ${getMoves(response.moves)}`);
+      $('.showTypes').text(`Types: ${getTypes(response.types)}`);
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
+  }
+   
+ function getMoves(movesArray){
+   let moves = "";
+   for (let i = 0; i <movesArray.length; i++){
+     moves += movesArray[i].move.name + ", ";
+   }
+   return moves
+  }
+
+  function getTypes(typesArray) {
+    let types = "";
+    for (let i = 0; i <typesArray.length; i++){
+     types += typesArray[i].type.name + ", ";
+    }
+    return types
+  }
+
+  function getAbilities(abilitiesArray) {
+    let ability = "";
+    for (let i = 0; i <abilitiesArray.length; i++){
+     ability += abilitiesArray[i].ability.name + ", ";
+    }
+    return ability
   }
   
   async function makeApiCall(number) {
