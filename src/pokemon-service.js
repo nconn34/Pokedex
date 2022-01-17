@@ -13,9 +13,9 @@ export class PokemonName{
   }
 }
 
-export class PokemonHabitat{
-  static async getHabitat(name){
-      return fetch(`https://pokeapi.co/api/v2/pokemon-habitat`)
+export class PokemonSpecies{
+  static async getSpecies(name){
+      return fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);
