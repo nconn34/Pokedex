@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
-import PokemonName from './pokemon-service.js'
+import { PokemonName, PokemonSpecies } from './pokemon-service.js'
 
 
 function clearFields() {
@@ -12,18 +12,19 @@ function clearFields() {
     $('.showImg').text("");
   }
   
-  function getInfo(response) {
+  function getInfo(response, species) {
     if (response.forms) {
       $('.showName').text(`Name: ${response.forms[0].name}`);
       $('.showImg').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
       $('.showAbilities').text(`Abilities: ${getAbilities(response.abilities)}`);
       $('.showMoves').text(`Moves: ${getMoves(response.moves)}`);
       $('.showTypes').text(`Types: ${getTypes(response.types)}`);
+      $('.showEggs').text(`Egg Group: ${species.egg_groups[0].name}`);
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
   }
-   
+
  function getMoves(movesArray){
    let moves = "";
    for (let i = 0; i <movesArray.length; i++){
@@ -48,9 +49,11 @@ function clearFields() {
     return ability
   }
   
-  async function makeApiCall(number) {
-    const response = await PokemonName.getPokemon(number);
-    getInfo(response);
+  async function makeApiCall(name) {
+    const response = await PokemonName.getPokemon(name);
+    const species = await PokemonSpecies.getSpecies(name);
+    console.log(species);
+    getInfo(response, species);
   }
   
   $(document).ready(function() {
@@ -60,4 +63,7 @@ function clearFields() {
       makeApiCall(pokemon);
     });
   });
+
+
+
 
