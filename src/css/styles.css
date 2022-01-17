@@ -1,10 +1,27 @@
+
+
 body {
   background-color: rgb(243, 243, 92);
+  margin: 0;
+  font-family: Pokemon Solid;
+  font-weight: 400;
 }
 .container {
   padding: 50px;
   margin: 0 auto;
 }
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 54px;
+} 
+
+
+
+/* div {
+  font-family: myFirstFont;
+} */
 
 /* .card {
   list-style: none;

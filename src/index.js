@@ -30,9 +30,22 @@ function clearFields() {
   
   $(document).ready(function() {
     $('#pokemonID').click(function() {
-      let pokemon = $('#pokemonNum').val();
-      clearFields();
-      makeApiCall(pokemon);
+      // let all = [];
+      // for(i=1;i<897;i++) {
+      //   all.push(i);
+      // }
+      // if($('#pokemonNum').val()>0) {
+      //   let pokemon = $('#pokemonNum').val();
+      //   clearFields();
+      //   makeApiCall(pokemon);
+      // } else {
+      //   if($('#habitat').val()===null) {
+      //     habitat = all;
+      //   } else {
+      //     habitat = $('#habitat').val();
+          
+      //   }
+      // }
     });
   });
 
