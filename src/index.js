@@ -10,6 +10,12 @@ function clearFields() {
     $('.showErrors').text("");
     $('.showName').text("");
     $('.showImg').text("");
+    $('.showAbilities').text("");
+    $('.showMoves').text("");
+    $('.showTypes').text("");
+   $('.showEggs').text(""); 
+   $('.showHabitat').text("");
+   $('.showFlavorText').text("");
   }
   
   function getInfo(response, species) {
@@ -19,7 +25,9 @@ function clearFields() {
       $('.showAbilities').text(`Abilities: ${getAbilities(response.abilities)}`);
       $('.showMoves').text(`Moves: ${getMoves(response.moves)}`);
       $('.showTypes').text(`Types: ${getTypes(response.types)}`);
-      $('.showEggs').text(`Egg Group: ${species.egg_groups[0].name}`);
+     $('.showEggs').text(`Egg Group: ${getEggs(species.egg_groups)}`); 
+     $('.showHabitat').text(`Habitat: ${species.habitat.name}`);
+     $('.showFlavorText').text(`Prof. Oak Says: ${species.flavor_text_entries[1].flavor_text}`);
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
@@ -48,11 +56,19 @@ function clearFields() {
     }
     return ability
   }
+
+  function getEggs(eggsArray) {
+    let eggs = "";
+    for (let i = 0; i <eggsArray.length; i++){
+     eggs += eggsArray[i].name + ", ";
+    }
+    console.log(eggs)
+    return eggs
+  }
   
   async function makeApiCall(name) {
     const response = await PokemonName.getPokemon(name);
     const species = await PokemonSpecies.getSpecies(name);
-    console.log(species);
     getInfo(response, species);
   }
   
