@@ -1,3 +1,71 @@
 body {
   background-color: rgb(243, 243, 92);
+  margin: 0;
+  font-family: Pokemon Solid;
+  font-weight: 400;
 }
+.container {
+  padding: 50px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 54px;
+}
+
+.pokemonID {
+  font-family: Pokemon Hollow;
+}
+
+.name {
+  font-family: Pokemon solid;
+  font-size: 50px;
+  font-weight: bold;
+  font-style: italic;
+}
+.card {
+  border: 5px solid black;
+}
+
+.emphsis {
+  font-family: Pokemon solid;
+}
+
+
+.card-text {
+  font-family: HIRO MISAKE;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+}
+
+.back-of-card {
+  display: none;
+}
+
+#pokemonID {
+  width: 48%;
+  margin: 2px;
+  border: 5px solid black;
+}
+
+#moreInfo {
+  width: 100%;
+  border: 5px solid black;
+  margin: 2px;
+}
+
+.card-title {
+  margin: auto;
+  height: auto;
+  display: block;
+}
+/* .card {
+  list-style: none;
+  padding: 40px;
+  background-color: #f4f4f4;
+  color: #222;
+  text-align: center;
+} */

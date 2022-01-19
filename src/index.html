@@ -5,13 +5,24 @@
   </head>
   <body>
     <div class="container">
-      <h1>Get Info on a Pokemon!</h1>
+      <h1 class="animate__animated animate__flip">Get Info on a Pokemon!</h1>
       <label for="pokemonNum">Enter an index:</label>
       <input id="pokemonNum" type="text" />
-      <button class="btn-success" id="pokemonID">
-        Get ID and Info about Pokemon
-      </button>
+      <div class="container">
+        <select id="Habitat">
+          <option value="default">Select a Habitat</option>
+          <option value=1>Cave</option>
+          <option value=2>Forest</option>
+          <option value=3>Grassland</option>
+        </select>
+      </div>
+      <div class="animate__animated animate__rubberBand">
+        <button class="btn-success" id="pokemonID">
+          Get ID and Info about Pokemon
+        </button>
+      </div>
       <div class="showErrors"></div>
+<<<<<<< HEAD
       <div class="showName"></div>
       <div class="showImg"></div>
       <div class="showAbilities"></div>
@@ -19,5 +30,35 @@
       <div class="showTypes"></div>
       <div class="showEggs"></div>
     </div>
+=======
+      <div class="row">
+        <div class="col-md-6">
+          <div class="front-of-card">
+            <div class="card">
+              <div class="card-title"></div>
+              <div class="card-text">
+                <span class="name"></span> </br>
+                Height: <span class="height"></span>ft. Weight: <span class="weight"></span>lbs </br>
+                Type: <span class="type"></span>
+              </div>
+            </div>
+          </div>
+          <!-- <h1 class="animate__animated animate__flip">An animated element</h1> -->
+
+          <div class="back-of-card">
+            <div class="card">
+              <div class="animate__animated animate__flip">
+                <div class="card-text">
+                <span class="emphsis">Abilities:</span> <span class="showAbilities"></span> </br>
+                <span class="emphsis">Eggs:</span> <span class="showEggs"></span> </br>
+                  <span class="emphsis">showMoves:</span> <span class="showMoves"></span>
+                </div>
+            </div>
+          </div>
+          </div>
+          <button class="btn-success" id="moreInfo">Flip Card Over!</button>
+        </div>
+      </div>
+>>>>>>> 60130733c5323735ce0beda47a68d3722f31b505
   </body>
 </html>
