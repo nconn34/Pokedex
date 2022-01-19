@@ -15,11 +15,13 @@ function clearFields() {
   
   function getInfo(response, species) {
     if (response.forms) {
-      $('.showName').text(`${response.forms[0].name}`);
-      $('.showImg').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
+      $('.name').text(`${response.forms[0].name}`);
+      $('.card-title').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
+      $('.type').text(`${response.types[0].type.name}`);
+      $('.height').text(`${response.height}`);
+      $('.weight').text(`${response.weight}`);
       $('.showAbilities').text(`Abilities: ${getAbilities(response.abilities)}`);
       $('.showMoves').text(`Moves: ${getMoves(response.moves)}`);
-      $('.showTypes').text(`Types: ${getTypes(response.types)}`);
       $('.showEggs').text(`Egg Group: ${species.egg_groups[0].name}`);
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
@@ -62,6 +64,12 @@ function clearFields() {
       clearFields();
       makeApiCall(pokemon);
     });
+    // $('#Habitat').change(function() {
+    //   habitat = $('#Habitat').val();
+    //   const response = await PokemonName.filterHabitat(habitat);
+    //   console.log(response)
+    //   getInfo(response, species);
+    // })
   });
       // let all = [];
       // for(i=1;i<897;i++) {
