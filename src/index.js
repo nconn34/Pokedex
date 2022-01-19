@@ -11,6 +11,12 @@ function clearFields() {
     $('.showErrors').text("");
     $('.showName').text("");
     $('.showImg').text("");
+    $('.showAbilities').text("");
+    $('.showMoves').text("");
+    $('.showTypes').text("");
+   $('.showEggs').text(""); 
+   $('.showHabitat').text("");
+   $('.showFlavorText').text("");
   }
   
   function getInfo(response, species) {
@@ -23,6 +29,8 @@ function clearFields() {
       $('.showAbilities').text(`${getAbilities(response.abilities)}`);
       $('.showMoves').text(`${getMoves(response.moves)}`);
       $('.showEggs').text(`${species.egg_groups[0].name}`);
+     $('.showHabitat').text(`Habitat: ${species.habitat.name}`);
+     $('.showFlavorText').text(`Prof. Oak Says: ${species.flavor_text_entries[1].flavor_text}`);
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
@@ -55,6 +63,15 @@ function clearFields() {
       ability += abilitiesArray[i].ability.name + ", ";
     }
     return ability
+  }
+
+  function getEggs(eggsArray) {
+    let eggs = "";
+    for (let i = 0; i <eggsArray.length; i++){
+     eggs += eggsArray[i].name + ", ";
+    }
+    console.log(eggs)
+    return eggs
   }
   
   async function makeApiCall(number) {
