@@ -58,18 +58,42 @@ function clearFields() {
     getInfo(response, species);
   }
   
+  async function getHabitat(habitat) {
+      const response = await PokemonName.filterHabitat(habitat);
+      let habitatList = [];
+      for(let i=0;i<response.pokemon_species.length;i++) {
+        habitatList.push(response.pokemon_species[i].name);
+      }
+      console.log(habitatList);
+      return habitatList;
+  }
+
+  async function getType(type) {
+    const response = await PokemonName.filterType(type)
+    let typeList = [];
+    for(let i=0;i<response.pokemon.length;i++) {
+      typeList.push(response.pokemon[i].name);
+    }
+    console.log(typeList);
+    return typeList;
+  }
+
   $(document).ready(function() {
     $('#pokemonID').click(function() {
       let pokemon = $('#pokemonNum').val();
       clearFields();
       makeApiCall(pokemon);
     });
-    // $('#Habitat').change(function() {
-    //   habitat = $('#Habitat').val();
-    //   const response = await PokemonName.filterHabitat(habitat);
-    //   console.log(response)
-    //   getInfo(response, species);
-    // })
+    $('#selectHabitat').change(function() {
+      let selectedHabitat = $('#selectHabitat').val();
+      const habitatList = getHabitat(selectedHabitat);
+      console.log(habitatList)
+    })
+    $('#selectType').change(function() {
+      let selectedType = $('#selectType').val();
+      const typeList = getType(selectedType);
+      console.log(typeList)
+    })
   });
       // let all = [];
       // for(i=1;i<897;i++) {
