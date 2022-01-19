@@ -29,15 +29,16 @@ h1 {
   border: 5px solid black;
 }
 
+.emphsis {
+  font-family: Pokemon solid;
+}
+
+
 .card-text {
   font-family: HIRO MISAKE;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
-}
-
-.emphsis {
-  font-family: Pokemon solid;
 }
 
 .back-of-card {
