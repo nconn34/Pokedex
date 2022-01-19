@@ -36,20 +36,24 @@ h1 {
 }
 
 .card-text {
-  font-family: Pokemon hollow;
+  font-family: HIRO MISAKE;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
-}
-
-.back-of-card {
-  display: none;
 }
 
 .card-title {
   height: auto;
   width: auto;
   border-bottom: 5px solid black;
+}
+
+.emphsis {
+  font-family: Pokemon solid;
+}
+
+.back-of-card {
+  display: none;
 }
 
 /* .card {
