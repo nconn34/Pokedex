@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
 import { PokemonName, PokemonSpecies } from './pokemon-service.js'
+import 'animate.css';
 
 
 function clearFields() {
@@ -20,12 +21,17 @@ function clearFields() {
       $('.type').text(`${response.types[0].type.name}`);
       $('.height').text(`${response.height}`);
       $('.weight').text(`${response.weight}`);
-      $('.showAbilities').text(`Abilities: ${getAbilities(response.abilities)}`);
-      $('.showMoves').text(`Moves: ${getMoves(response.moves)}`);
-      $('.showEggs').text(`Egg Group: ${species.egg_groups[0].name}`);
+      $('.showAbilities').text(`${getAbilities(response.abilities)}`);
+      $('.showMoves').text(`${getMoves(response.moves)}`);
+      $('.showEggs').text(`${species.egg_groups[0].name}`);
       } else {
       $('.showErrors').text(`There was an error: ${response}`);
     }
+  }
+
+  function flipCard() {
+    $('.front-of-card').toggle();
+    $('.back-of-card').toggle();
   }
 
   function getMoves(movesArray){
@@ -63,6 +69,9 @@ function clearFields() {
       let pokemon = $('#pokemonNum').val();
       clearFields();
       makeApiCall(pokemon);
+    });
+    $('#moreInfo').click(function() {
+      flipCard();
     });
     // $('#Habitat').change(function() {
     //   habitat = $('#Habitat').val();

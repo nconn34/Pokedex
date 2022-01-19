@@ -5,7 +5,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Get Info on a Pokemon!</h1>
+      <h1 class="animate__animated animate__flip">Get Info on a Pokemon!</h1>
       <label for="pokemonNum">Enter an index:</label>
       <input id="pokemonNum" type="text" />
       <div class="container">
@@ -16,9 +16,11 @@
           <option value=3>Grassland</option>
         </select>
       </div>
+      <div class="animate__animated animate__rubberBand">
         <button class="btn-success" id="pokemonID">
-        Get ID and Info about Pokemon
-      </button>
+          Get ID and Info about Pokemon
+        </button>
+      </div>
       <div class="showErrors"></div>
       <div class="row">
         <div class="col-md-6">
@@ -45,8 +47,8 @@
             </div>
           </div>
           </div>
+          <button class="btn-success" id="moreInfo">Flip Card Over!</button>
         </div>
-        <button class="btn-success" id="moreInfo">Flip Card Over!</button>
       </div>
   </body>
 </html>
