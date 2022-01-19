@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
 import { PokemonName, PokemonSpecies } from './pokemon-service.js'
-import 'animate.css';
+// import 'animate.css';
 
 
 function clearFields() {
@@ -28,7 +28,8 @@ function clearFields() {
       $('.weight').text(`${response.weight}`);
       $('.showAbilities').text(`${getAbilities(response.abilities)}`);
       $('.showMoves').text(`${getMoves(response.moves)}`);
-      $('.showEggs').text(`${species.egg_groups[0].name}`);
+      $('.showTypes').text(`Types: ${getTypes(response.types)}`);
+      $('.showEggs').text(`Egg Group: ${getEggs(species.egg_groups)}`);
      $('.showHabitat').text(`Habitat: ${species.habitat.name}`);
      $('.showFlavorText').text(`Prof. Oak Says: ${species.flavor_text_entries[1].flavor_text}`);
       } else {
