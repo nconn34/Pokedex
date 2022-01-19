@@ -75,8 +75,8 @@ function clearFields() {
     return eggs
   }
   
-  async function makeApiCall(number) {
-    const response = await PokemonName.getPokemon(number);
+  async function makeApiCall(name) {
+    const response = await PokemonName.getPokemon(name);
     const species = await PokemonSpecies.getSpecies(name);
     getInfo(response, species);
   }
