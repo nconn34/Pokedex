@@ -9,46 +9,91 @@
       <label for="pokemonNum">Enter an index:</label>
       <input id="pokemonNum" type="text" />
       <div class="container">
-        <select id="Habitat">
+        <select id="selectHabitat">
           <option value="default">Select a Habitat</option>
           <option value=1>Cave</option>
           <option value=2>Forest</option>
           <option value=3>Grassland</option>
         </select>
+        <select id="selectType">
+          <option value="default">Select a Type</option>
+          <option value=1>Normal</option>
+          <option value=2>Flying</option>
+          <option value=3>Fighting</option>
+        </select>
       </div>
+      <div class="row">
+        <div class="col-md-6">
       <div class="animate__animated animate__rubberBand">
         <button class="btn-success" id="pokemonID">
           Get ID and Info about Pokemon
         </button>
       </div>
+      </div>
+      <div class="col-md-6">
+      <button class="btn-success" id="pokemonID2">
+        Compare a second pokemon
+      </button>
+      </div>
+      </div>
       <div class="showErrors"></div>
       <div class="row">
         <div class="col-md-6">
           <div class="front-of-card">
-            <div class="card">
-              <div class="card-title"></div>
-              <div class="card-text">
-                <span class="name"></span> </br>
-                Height: <span class="height"></span>ft. Weight: <span class="weight"></span>lbs </br>
-                Type: <span class="type"></span>
+            <div class="animate__animated animate__flip">
+              <div class="card">
+                <div class="card-title"></div>
+                <div class="card-text">
+                  <span class="name"></span> </br>
+                  <div class="showFlavorText"></div> </br>
+                  Height: <span class="height"></span>ft. Weight: <span class="weight"></span>lbs </br>
+                  Type: <span class="type"></span>
+                </div>
               </div>
             </div>
           </div>
-          <!-- <h1 class="animate__animated animate__flip">An animated element</h1> -->
 
           <div class="back-of-card">
-            <div class="card">
-              <div class="animate__animated animate__flip">
+            <div class="animate__animated animate__flip">
+              <div class="card">
                 <div class="card-text">
                 <span class="emphsis">Abilities:</span> <span class="showAbilities"></span> </br>
                 <span class="emphsis">Eggs:</span> <span class="showEggs"></span> </br>
                   <span class="emphsis">showMoves:</span> <span class="showMoves"></span>
+                  <div class="showHabitat"></div>
                 </div>
+              </div>
             </div>
           </div>
-          </div>
-          <button class="btn-success" id="moreInfo">Flip Card Over!</button>
         </div>
+        <div class="col-md-6">
+          <div class="front-of-card">
+            <div class="animate__animated animate__flip">
+              <div class="card">
+                <div class="card-title2"></div>
+                <div class="card-text">
+                  <span class="name2"></span> </br>
+                  <div class="showFlavorText2"></div> </br>
+                  Height: <span class="height2"></span>ft. Weight: <span class="weight2"></span>lbs </br>
+                  Type: <span class="type2"></span>
+                </div>  
+              </div>
+            </div>
+          </div>
+
+          <div class="back-of-card">
+            <div class="animate__animated animate__flip">
+              <div class="card">
+                <div class="card-text">
+                <span class="emphsis">Abilities:</span> <span class="showAbilities2"></span> </br>
+                <span class="emphsis">Eggs:</span> <span class="showEggs2"></span> </br>
+                  <span class="emphsis">showMoves:</span> <span class="showMoves2"></span>
+                  <div class="showHabitat2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
+      <button class="btn-success" id="moreInfo">Flip Card Over!</button>
   </body>
 </html>
