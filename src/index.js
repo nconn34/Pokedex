@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
-import { PokemonName, PokemonSpecies } from './pokemon-service.js'
+import { PokemonName, PokemonSpecies, CatchEmAll } from './pokemon-service.js'
 import 'animate.css';
 
 
@@ -17,6 +17,7 @@ function clearFields() {
    $('.showEggs').text(""); 
    $('.showHabitat').text("");
    $('.showFlavorText').text("");
+   $('.showEmAll').text("");
   }
   
   function getInfo(response, species) {
@@ -27,7 +28,7 @@ function clearFields() {
       $('.height').text(`${response.height}`);
       $('.weight').text(`${response.weight}`);
       $('.showAbilities').text(`${getAbilities(response.abilities)}`);
-      $('.showMoves').text(`${getMoves(response.moves)}`);
+      $('.showMoves').text(` ${getMoves(response.moves)}`);
       $('.showTypes').text(`Types: ${getTypes(response.types)}`);
       $('.showEggs').text(`Egg Group: ${getEggs(species.egg_groups)}`);
      $('.showHabitat').text(`Habitat: ${species.habitat.name}`);
@@ -37,10 +38,22 @@ function clearFields() {
     }
   }
 
+
+
   function flipCard() {
     $('.front-of-card').toggle();
     $('.back-of-card').toggle();
   }
+
+  function displayAll(generation){
+    let pokemonArray = generation.results
+    let pokemonList = $("ul#list");
+    let ball = ""
+    pokemonArray.forEach(element => {
+      ball +=  "<li>" + element.name +"</li>"
+  });
+  pokemonList.html(ball)
+}
 
   function getMoves(movesArray){
     let moves = "";
@@ -80,6 +93,11 @@ function clearFields() {
     const species = await PokemonSpecies.getSpecies(name);
     getInfo(response, species);
   }
+
+  async function themAll() {
+    const generation = await CatchEmAll.caughtEm();
+    displayAll(generation);
+  }
   
   async function getHabitat(habitat) {
       const response = await PokemonName.filterHabitat(habitat);
@@ -110,6 +128,9 @@ function clearFields() {
     $('#moreInfo').click(function() {
       flipCard();
     });
+    $('#catchEm').click(function(){
+      themAll();
+    })
   
     $('#selectHabitat').change(function() {
       let selectedHabitat = $('#selectHabitat').val();
