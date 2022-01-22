@@ -2,10 +2,9 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
-import { Pokemon } from './pokemon-service.js'
-import { Pokedex } from './pokedex.js'
+import { Pokemon } from './pokemon.js';
+import { getArrayWith } from './pokedex.js';
 import 'animate.css';
-
 
 function clearFields() {
   $('#pokemon').val("");
@@ -22,7 +21,6 @@ function clearFields() {
   
 async function loadInfo(pokemon) {
   await pokemon.getInfo();
-  // if (response.forms) {
   $('.name').text(pokemon.name);
   $('.card-title').html(`<img src=${pokemon.picture}>`);
   $('.type').text(pokemon.type);
@@ -34,42 +32,34 @@ async function loadInfo(pokemon) {
   $('.showEggs').text(pokemon.eggs);
   $('.showPokeHabitat').text(`Habitat: ${pokemon.habitat}`);
   $('.showFlavorText').text(`Prof. Oak Says: ${pokemon.flavorText}`);
-  //   } else {
-  //   $('.showErrors').text(`There was an error: ${response}`);
-  // }
 }
 
-  function flipCard() {
-    $('.front-of-card').toggle();
-    $('.back-of-card').toggle();
-  }
-
-
+function flipCard() {
+  $('.front-of-card').toggle();
+  $('.back-of-card').toggle();
+}
   
-  
-  
-  $(document).ready(function() {
-    $('#pokemonName').change(function() {
-      clearFields();
-      let poke = new Pokemon($('#pokemonName').val());
-      loadInfo(poke);
-    })
-    
-    $('#moreInfo').click(function() {
-      flipCard();
-    });
-  
-    // $('#selectHabitat').change(function() {
-    //   let selectedHabitat = $('#selectHabitat').val();
-    //   const habitatList = getPokeWithHabitat(selectedHabitat);
-    //   console.log(habitatList)
-    // })
-    // $('#selectType').change(function() {
-    //   let selectedType = $('#selectType').val();
-    //   const typeList = getPokeWithType(selectedType);
-    //   console.log(typeList)
-    // })
+$(document).ready(function() {
+  $('#pokemonName').change(function() {
+    clearFields();
+    let poke = new Pokemon($('#pokemonName').val());
+    loadInfo(poke);
   });
+  
+  $('#moreInfo').click(function() {
+    flipCard();
+  });
+
+  $('#selectHabitat').change(function() {
+    const selectedHabitat = $('#selectHabitat').val();
+    getArrayWith(selectedHabitat, "pokemon-habitat","pokemon_species");
+  });
+
+  $('#selectType').change(function() {
+    const selectedType = $('#selectType').val();
+    getArrayWith(selectedType, "type","pokemon","pokemon");
+  });
+});
 
 
 

@@ -37,24 +37,23 @@ export class Pokemon{
     this.weight = this.info.weight;
     this.habitat = this.speciesInfo.habitat.name;
     this.flavorText = this.speciesInfo.flavor_text_entries[1].flavor_text;
-    this.abilities = this.listItems(this.info.abilities,"ability");
-    this.moves = this.listItems(this.info.moves,"move");
-    this.types = this.listItems(this.info.types,"type");
-    this.eggs = this.listItems(this.speciesInfo.egg_groups);
+    this.abilities = listItems(this.info.abilities,"ability");
+    this.moves = listItems(this.info.moves,"move");
+    this.types = listItems(this.info.types,"type");
+    this.eggs = listItems(this.speciesInfo.egg_groups);
   }
+}
 
-  listItems(array, term) {
-    let list = "";
-    array.forEach((item,index) => { 
-      if(term) {
-        list += item[term].name + ", ";
-      } else {
-        console.log(item);
-        list += item.name + ", ";
-      }
-      if(index>5) {array.length=index+1;} // clever but terrible way to break a forEach loop
-    });
-    list = list.substring(0,list.length-2);
-    return list;
-  }
+function listItems(array, term) {
+  let list = "";
+  array.forEach((item,index) => { 
+    if(term) {
+      list += item[term].name + ", ";
+    } else {
+      list += item.name + ", ";
+    }
+    if(index>5) {array.length=index+1;} // terrible irresponsible hack to break a forEach loop
+  });
+  list = list.substring(0,list.length-2);
+  return list;
 }
