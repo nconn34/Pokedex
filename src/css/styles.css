@@ -19,7 +19,8 @@ h1 {
   font-family: Pokemon Hollow;
 }
 
-.name {
+.name,
+.name2 {
   font-family: Pokemon solid;
   font-size: 50px;
   font-weight: bold;
@@ -41,11 +42,21 @@ h1 {
   text-align: center;
 }
 
+.emphasis {
+  font-family: Pokemon solid;
+}
+
 .back-of-card {
   display: none;
 }
 
 #pokemonID {
+  width: 48%;
+  margin: 2px;
+  border: 5px solid black;
+}
+
+#pokemonID2 {
   width: 48%;
   margin: 2px;
   border: 5px solid black;
@@ -57,16 +68,14 @@ h1 {
   margin: 2px;
 }
 
-.card-title {
+.card-title,
+.card-title2 {
   margin: auto;
   height: auto;
   display: block;
 }
-
-/* .card {
-  list-style: none;
-  padding: 40px;
-  background-color: #f4f4f4;
-  color: #222;
-  text-align: center;
-} */
+.showFlavorText,
+.showFlavorText2 {
+  font-style: italic;
+  font-size: 18px;
+}
