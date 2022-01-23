@@ -30,11 +30,6 @@ h1 {
   border: 5px solid black;
 }
 
-.emphsis {
-  font-family: Pokemon solid;
-}
-
-
 .card-text {
   font-family: HIRO MISAKE;
   font-weight: 700;
@@ -78,4 +73,13 @@ h1 {
 .showFlavorText2 {
   font-style: italic;
   font-size: 18px;
+}
+
+li {
+  background: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png")
+    no-repeat left top;
+    height: 54px;
+    padding-left: 44px;
+    padding-top: 3px;
+    display: block;
 }
