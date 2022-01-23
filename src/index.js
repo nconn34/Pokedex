@@ -15,9 +15,9 @@ function clearFields() {
   $('.showAbilities').text("");
   $('.showMoves').text("");
   $('.showTypes').text("");
- $('.showEggs').text(""); 
- $('.showHabitat').text("");
- $('.showFlavorText').text("");
+  $('.showEggs').text(""); 
+  $('.showHabitat').text("");
+  $('.showFlavorText').text("");
 }
 
 function getInfo(response, species) {
