@@ -6,18 +6,16 @@ export class Pokemon{
   async callAPI(path) {
     return fetch(`https://pokeapi.co/api/v2/${path}/${this.name}`)
       .then(function(response) {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
+        if (!response.ok) {throw Error(response.statusText);}
         return response.json();
       })
       .catch(function(error) {return error;});
   }
 
   async getInfo() {
-    this.name = this.pokemonInfo.forms[0].name;
     this.pokemonInfo = await this.callAPI("pokemon");
     this.speciesInfo = await this.callAPI("pokemon-species");
+    this.name = this.pokemonInfo.forms[0].name;
     this.picture = this.pokemonInfo.sprites.other.dream_world.front_default;
     this.type = this.pokemonInfo.types[0].type.name;
     this.height = this.pokemonInfo.height;
@@ -39,7 +37,7 @@ function listItems(array, intermediateBranch) {
     } else {
       list += item.name + ", ";
     }
-    if(index>5) {array.length=index+1;} // terrible & irresponsible hack to break a forEach loop
+    if(index>4) {array.length=index+1;} // terrible & irresponsible hack to break a forEach loop
   });
   list = list.substring(0,list.length-2);
   return list;

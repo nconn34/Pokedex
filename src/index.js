@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
 import { Pokemon } from './pokemon.js';
-import { pokemonArray } from './pokedex.js';
+import { Pokedex } from './pokedex.js';
 import 'animate.css';
 
 function clearFields() {
@@ -19,7 +19,7 @@ function clearFields() {
   $('.showFlavorText').text("");
 }
   
-async function loadInfo(pokemon) {
+async function loadCard(pokemon) {
   await pokemon.getInfo();
   $('.name').text(pokemon.name);
   $('.card-title').html(`<img src=${pokemon.picture}>`);
@@ -38,34 +38,32 @@ function flipCard() {
   $('.front-of-card').toggle();
   $('.back-of-card').toggle();
 }
-  
+
+async function loadList(pokedex) {
+  if($('#selectHabitat').val() !== "default") {
+    pokedex.habitatList = await pokedex.makeArray($('#selectHabitat').val(), "pokemon-habitat","pokemon_species");
+    $("#pokedexList").text(pokedex.habitatList);
+  }
+  if($('#selectType').val() !== "default") {
+    pokedex.typeList = await pokedex.makeArray($('#selectType').val(), "type","pokemon","pokemon");
+    $("#pokedexList").text(pokedex.typeList);
+  }
+}
+
 $(document).ready(function() {
   $('#pokemonName').change(function() {
     clearFields();
     let pokemon = new Pokemon($('#pokemonName').val());
-    loadInfo(pokemon);
+    loadCard(pokemon);
   });
-  
+
   $('#moreInfo').click(function() {
     flipCard();
   });
-
-  $('#selectHabitat').change(function() {
-    const selectedHabitat = $('#selectHabitat').val();
-    pokemonArray(selectedHabitat, "pokemon-habitat","pokemon_species");
+  
+  $("#pokedexID").click(function() {
+    let pokedex = new Pokedex();
+    loadList(pokedex);
   });
 
-  $('#selectType').change(function() {
-    const selectedType = $('#selectType').val();
-    pokemonArray(selectedType, "type","pokemon","pokemon");
-  });
 });
-
-
-
-
-
-
-
-
-
