@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
 import { Pokemon } from './pokemon.js';
-import { Pokedex } from './pokedex.js';
+import { Pokedex, CatchEmAll } from './pokedex.js';
 import 'animate.css';
 
 function clearFields() {
@@ -39,6 +39,16 @@ function flipCard() {
   $('.back-of-card').toggle();
 }
 
+function displayAll(generation){
+  let pokemonArray = generation.results
+  let pokemonList = $("ul#list");
+  let ball = ""
+  pokemonArray.forEach(element => {
+    ball +=  "<li>" + element.name +"</li>"
+  });
+  pokemonList.html(ball)
+}
+
 async function loadList(pokedex) {
   if($('#selectHabitat').val() !== "default") {
     pokedex.habitatList = await pokedex.makeArray($('#selectHabitat').val(), "pokemon-habitat","pokemon_species");
@@ -49,6 +59,10 @@ async function loadList(pokedex) {
     $("#pokedexList").text(pokedex.typeList);
   }
 }
+  async function themAll() {
+    const generation = await CatchEmAll.caughtEm();
+    displayAll(generation);
+  }
 
 $(document).ready(function() {
   $('#pokemonName').change(function() {
@@ -56,14 +70,14 @@ $(document).ready(function() {
     let pokemon = new Pokemon($('#pokemonName').val());
     loadCard(pokemon);
   });
-
   $('#moreInfo').click(function() {
     flipCard();
   });
-  
+  $('#catchEm').click(function(){
+    themAll();
+  });
   $("#pokedexID").click(function() {
     let pokedex = new Pokedex();
     loadList(pokedex);
   });
-
 });
