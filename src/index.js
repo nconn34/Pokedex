@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
-import { Pokemon } from './pokemon.js';
+import { PokemonSolo } from './pokemon.js';
 import { Pokedex, CatchEmAll } from './pokedex.js';
 import 'animate.css';
 
@@ -34,6 +34,21 @@ async function loadCard(pokemon) {
   $('.showFlavorText').text(`Prof. Oak Says: ${pokemon.flavorText}`);
 }
 
+async function loadCard2(pokemon2) {
+  await pokemon2.getInfo();
+  $('.name2').text(pokemon2.name);
+  $('.card-title2').html(`<img src=${pokemon2.picture}>`);
+  $('.type2').text(pokemon2.type);
+  $('.height2').text(pokemon2.height);
+  $('.weight2').text(pokemon2.weight);
+  $('.showAbilities2').text(pokemon2.abilities);
+  $('.showMoves2').text(pokemon2.moves);
+  $('.showTypes2').text(pokemon2.types);
+  $('.showEggs2').text(pokemon2.eggs);
+  $('.showPokeHabitat2').text(`Habitat: ${pokemon2.habitat}`);
+  $('.showFlavorText2').text(`Prof. Oak Says: ${pokemon2.flavorText}`);
+}
+
 function flipCard() {
   $('.front-of-card').toggle();
   $('.back-of-card').toggle();
@@ -59,44 +74,24 @@ async function loadList(pokedex) {
     $("#pokedexList").text(pokedex.typeList);
   }
 }
-  async function themAll() {
-    const generation = await CatchEmAll.caughtEm();
-    displayAll(generation);
-  }
 
-
-
-function getInfo2(response, species) {
-  if (response.forms) {
-    $('.name2').text(`${response.forms[0].name}`);
-    $('.card-title2').html(`<img src=${response.sprites.other.dream_world.front_default}>`);
-    $('.type2').text(`${response.types[0].type.name}`);
-    $('.height2').text(`${response.height}`);
-    $('.weight2').text(`${response.weight}`);
-    $('.showAbilities2').text(`${getAbilities(response.abilities)}`);
-    $('.showMoves2').text(`${getMoves(response.moves)}`);
-    $('.showTypes2').text(`${getTypes(response.types)}`);
-    $('.showEggs2').text(`${getEggs(species.egg_groups)}`);
-    $('.showHabitat2').text(`Habitat: ${species.habitat.name}`);
-    $('.showFlavorText2').text(`Prof. Oak Says: ${species.flavor_text_entries[1].flavor_text}`);
-    } else {
-    $('.showErrors').text(`There was an error: ${response}`);
-  }
-}
-
-async function makeApiCall2(name) {
-  const response = await PokemonName.getPokemon(name);
-  const species = await PokemonSpecies.getSpecies(name);
-  getInfo2(response, species);
+async function themAll() {
+  const generation = await CatchEmAll.caughtEm();
+  displayAll(generation);
 }
 
 
 
 $(document).ready(function() {
-  $('#pokemonName').change(function() {
-    clearFields();
-    let pokemon = new Pokemon($('#pokemonName').val());
+  $('#pokemonID').click(function() {
+    // clearFields();
+    let pokemon = new PokemonSolo($('#pokemonName').val());
     loadCard(pokemon);
+  });
+  $('#pokemonID2').click(function() {
+    //clearFields();
+    let pokemon2 = new PokemonSolo($('#pokemonName').val());
+    loadCard2(pokemon2);
   });
   $('#moreInfo').click(function() {
     flipCard();
@@ -107,9 +102,5 @@ $(document).ready(function() {
   $("#pokedexID").click(function() {
     let pokedex = new Pokedex();
     loadList(pokedex);
-  });
-  $('#pokemonID2').click(function() {
-    let pokemon = $('#pokemonNum').val();
-    makeApiCall2(pokemon);
   });
 });
