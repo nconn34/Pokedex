@@ -1,6 +1,6 @@
 
-async function getFiltered(setupText, selection){
-  return fetch(`https://pokeapi.co/api/v2/${setupText}/${selection}`)
+async function listFromAPI(path, selection){
+  return fetch(`https://pokeapi.co/api/v2/${path}/${selection}`)
     .then(function(response) {
       if (!response.ok) {
         throw Error(response.statusText);
@@ -12,17 +12,17 @@ async function getFiltered(setupText, selection){
     });
 }
 
-export async function getArrayWith(selection, setupText, locationText, term) {
-  const response = await getFiltered(setupText,selection);
-  let filteredArray = [];
+export async function pokemonArray(selection, path, locationText, intermediateBranch) {
+  const response = await listFromAPI(path,selection);
+  let listArray = [];
   response[locationText].forEach((item) => {
-    if(term) {
-      filteredArray.push(item[term].name);  
+    if(intermediateBranch) {
+      listArray.push(item[intermediateBranch].name);  
     } else {
-      filteredArray.push(item.name);
+      listArray.push(item.name);
     }
   });
-  console.log(filteredArray);
-  return filteredArray;
+  console.log(listArray);
+  return listArray;
 }
 

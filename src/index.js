@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
 import { Pokemon } from './pokemon.js';
-import { getArrayWith } from './pokedex.js';
+import { pokemonArray } from './pokedex.js';
 import 'animate.css';
 
 function clearFields() {
@@ -42,8 +42,8 @@ function flipCard() {
 $(document).ready(function() {
   $('#pokemonName').change(function() {
     clearFields();
-    let poke = new Pokemon($('#pokemonName').val());
-    loadInfo(poke);
+    let pokemon = new Pokemon($('#pokemonName').val());
+    loadInfo(pokemon);
   });
   
   $('#moreInfo').click(function() {
@@ -52,12 +52,12 @@ $(document).ready(function() {
 
   $('#selectHabitat').change(function() {
     const selectedHabitat = $('#selectHabitat').val();
-    getArrayWith(selectedHabitat, "pokemon-habitat","pokemon_species");
+    pokemonArray(selectedHabitat, "pokemon-habitat","pokemon_species");
   });
 
   $('#selectType').change(function() {
     const selectedType = $('#selectType').val();
-    getArrayWith(selectedType, "type","pokemon","pokemon");
+    pokemonArray(selectedType, "type","pokemon","pokemon");
   });
 });
 
