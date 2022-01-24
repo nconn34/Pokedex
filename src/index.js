@@ -55,25 +55,33 @@ function flipCard() {
 }
 
 function displayAll(generation){
-  let pokemonArray = generation.results
+  let pokemonArray = generation.results;
   let pokemonList = $("ul#list");
-  let ball = ""
+  let ball = "";
   pokemonArray.forEach(element => {
-    ball +=  "<li>" + element.name +"</li>"
+    ball +=  (`<li><button id="select-${element.name}">Select</button><button id="show-${element.name}">Show Card</button>  ${element.name}</li>`);
   });
-  pokemonList.html(ball)
+  pokemonList.html(ball);
 }
 
 async function loadList(pokedex) {
   if($('#selectHabitat').val() !== "default") {
-    pokedex.habitatList = await pokedex.makeArray($('#selectHabitat').val(), "pokemon-habitat","pokemon_species");
+    pokedex.habitatList = await pokedex.makeArray($('#selectHabitat').val(), "pokemon-habitat/","pokemon_species");
     $("#pokedexList").text(pokedex.habitatList);
   }
   if($('#selectType').val() !== "default") {
-    pokedex.typeList = await pokedex.makeArray($('#selectType').val(), "type","pokemon","pokemon");
+    pokedex.typeList = await pokedex.makeArray($('#selectType').val(), "type","pokemon/","pokemon");
     $("#pokedexList").text(pokedex.typeList);
   }
 }
+
+
+// async function loadDefault(pokedex) {
+//   pokedex.fullList = await pokedex.makeArray("pokemon?limit=151","","");
+//   showList(pokedex.fullList);
+// }
+
+// 
 
 async function themAll() {
   const generation = await CatchEmAll.caughtEm();
@@ -81,22 +89,34 @@ async function themAll() {
 }
 
 
-
 $(document).ready(function() {
+  $(document).click(function(event) {
+    // const btn = $(event.target).text();
+    const id = event.target.id;
+    if(event.target.type === "submit") {
+      if(id.substring(0,6) === "select") {
+        console.log(id & " for team");
+      } else(id.substring(0,4) === "show"); {
+        let pokemon = new PokemonSolo(id.substring(5));
+        loadCard(pokemon);
+      }
+    }
+  });
   $('#pokemonID').click(function() {
     // clearFields();
     let pokemon = new PokemonSolo($('#pokemonName').val());
     loadCard(pokemon);
   });
   $('#pokemonID2').click(function() {
-    //clearFields();
     let pokemon2 = new PokemonSolo($('#pokemonName').val());
     loadCard2(pokemon2);
   });
   $('#moreInfo').click(function() {
     flipCard();
   });
-  $('#catchEm').click(function(){
+  $('#catchEm').click(function() {
+    // let pokedex = new Pokedex();
+    // loadDefault(pokedex);
     themAll();
   });
   $("#pokedexID").click(function() {
@@ -104,3 +124,5 @@ $(document).ready(function() {
     loadList(pokedex);
   });
 });
+
+// $(document).getElementById("list").onclick = function() {loadCard(element.name)};

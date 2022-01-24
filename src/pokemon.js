@@ -4,7 +4,7 @@ export class PokemonSolo{
   }
 
   async callAPI(path) {
-    return fetch(`https://pokeapi.co/api/v2/${path}/${this.name}`)
+    return fetch(`https://pokeapi.co/api/v2${path}${this.name}`)
       .then(function(response) {
         if (!response.ok) {throw Error(response.statusText);}
         return response.json();
@@ -13,8 +13,8 @@ export class PokemonSolo{
   }
 
   async getInfo() {
-    this.pokemonInfo = await this.callAPI("pokemon");
-    this.speciesInfo = await this.callAPI("pokemon-species");
+    this.pokemonInfo = await this.callAPI("/pokemon/");
+    this.speciesInfo = await this.callAPI("/pokemon-species/");
     this.name = this.pokemonInfo.forms[0].name;
     this.picture = this.pokemonInfo.sprites.other.dream_world.front_default;
     this.type = this.pokemonInfo.types[0].type.name;

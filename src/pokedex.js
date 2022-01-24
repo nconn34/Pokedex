@@ -2,10 +2,11 @@ export class Pokedex {
   constructor() {
     this.habitatList = [];
     this.typeList = [];
+    this.fullList = [];
   }
 
   async listFromAPI(path, selection) {
-    return fetch(`https://pokeapi.co/api/v2/${path}/${selection}`)
+    return fetch(`https://pokeapi.co/api/v2/${path}${selection}`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -18,8 +19,10 @@ export class Pokedex {
   }
   
   async makeArray(selection, path, locationText, intermediateBranch) {
+    console.log(`https://pokeapi.co/api/v2/${path}${selection}`)
     const response = await this.listFromAPI(path,selection);
     let listArray = [];
+    console.log(response);
     response[locationText].forEach((item) => {
       if(intermediateBranch) {
         listArray.push(item[intermediateBranch].name);  
@@ -34,7 +37,7 @@ export class Pokedex {
 
 export class CatchEmAll{
   static async caughtEm(){
-      return fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`)
+    return fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`)
       .then(function(response) {
         if (!response.ok) {
           throw Error(response.statusText);
@@ -43,6 +46,6 @@ export class CatchEmAll{
       })
       .catch(function(error) {
         return error;
-      })
+      });
   }
 }
