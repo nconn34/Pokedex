@@ -25,9 +25,11 @@ h1 {
   font-size: 50px;
   font-weight: bold;
   font-style: italic;
+  color: rgb(233, 73, 10);
 }
 .card {
   border: 5px solid black;
+  height: 700px;
 }
 
 .card-text {
@@ -39,6 +41,7 @@ h1 {
 
 .emphasis {
   font-family: Pokemon solid;
+  font-weight: bold;
 }
 
 .back-of-card {
@@ -66,20 +69,23 @@ h1 {
 .card-title,
 .card-title2 {
   margin: auto;
-  height: auto;
   display: block;
+  display: flex;
+  flex-flow: row wrap;
+  height: 400px;
 }
 .showFlavorText,
 .showFlavorText2 {
   font-style: italic;
   font-size: 18px;
+  margin-top: 25px;
 }
 
 li {
   background: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png")
     no-repeat left top;
-    height: 54px;
-    padding-left: 44px;
-    padding-top: 3px;
-    display: block;
+  height: 54px;
+  padding-left: 44px;
+  padding-top: 3px;
+  display: block;
 }
