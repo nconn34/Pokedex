@@ -19,7 +19,7 @@ export class Pokedex {
   }
   
   async makeArray(selection, path, locationText, intermediateBranch) {
-    console.log(`https://pokeapi.co/api/v2/${path}${selection}`)
+    // console.log(`https://pokeapi.co/api/v2/${path}${selection}`)
     const response = await this.listFromAPI(path,selection);
     let listArray = [];
     console.log(response);
@@ -33,19 +33,4 @@ export class Pokedex {
     return listArray;
   }
   
-}
-
-export class CatchEmAll{
-  static async caughtEm(){
-    return fetch(`https://pokeapi.co/api/v2/pokemon?limit=151`)
-      .then(function(response) {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        return response.json();
-      })
-      .catch(function(error) {
-        return error;
-      });
-  }
 }

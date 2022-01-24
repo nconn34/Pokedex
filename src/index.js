@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
 import { PokemonSolo } from './pokemon.js';
-import { Pokedex, CatchEmAll } from './pokedex.js';
+import { Pokedex } from './pokedex.js';
 import 'animate.css';
 
 function clearFields() {
@@ -54,12 +54,12 @@ function flipCard() {
   $('.back-of-card').toggle();
 }
 
-function displayAll(generation){
-  let pokemonArray = generation.results;
+
+function showList(pokemonArray) {
   let pokemonList = $("ul#list");
   let ball = "";
   pokemonArray.forEach(element => {
-    ball +=  (`<li><button id="select-${element.name}">Select</button><button id="show-${element.name}">Show Card</button>  ${element.name}</li>`);
+    ball +=  (`<li><button id="select-${element}">Select</button><button id="show-${element}">Show Card</button>  ${element}</li>`);
   });
   pokemonList.html(ball);
 }
@@ -67,37 +67,29 @@ function displayAll(generation){
 async function loadList(pokedex) {
   if($('#selectHabitat').val() !== "default") {
     pokedex.habitatList = await pokedex.makeArray($('#selectHabitat').val(), "pokemon-habitat/","pokemon_species");
-    $("#pokedexList").text(pokedex.habitatList);
+    showList(pokedex.habitatList);
   }
   if($('#selectType').val() !== "default") {
     pokedex.typeList = await pokedex.makeArray($('#selectType').val(), "type","pokemon/","pokemon");
-    $("#pokedexList").text(pokedex.typeList);
+    showList(pokedex.typeList);
   }
 }
 
-
-// async function loadDefault(pokedex) {
-//   pokedex.fullList = await pokedex.makeArray("pokemon?limit=151","","");
-//   showList(pokedex.fullList);
-// }
-
-// 
-
-async function themAll() {
-  const generation = await CatchEmAll.caughtEm();
-  displayAll(generation);
+async function loadDefault(pokedex) {
+  pokedex.fullList = await pokedex.makeArray("pokemon?limit=151","","results");
+  showList(pokedex.fullList);
 }
-
 
 $(document).ready(function() {
   $(document).click(function(event) {
-    // const btn = $(event.target).text();
+    // console.log($(event.target).text());
     const id = event.target.id;
     if(event.target.type === "submit") {
       if(id.substring(0,6) === "select") {
         console.log(id & " for team");
       } else(id.substring(0,4) === "show"); {
         let pokemon = new PokemonSolo(id.substring(5));
+        console.log("card for " & id)
         loadCard(pokemon);
       }
     }
@@ -115,14 +107,11 @@ $(document).ready(function() {
     flipCard();
   });
   $('#catchEm').click(function() {
-    // let pokedex = new Pokedex();
-    // loadDefault(pokedex);
-    themAll();
+    let pokedex = new Pokedex();
+    loadDefault(pokedex);
   });
   $("#pokedexID").click(function() {
     let pokedex = new Pokedex();
     loadList(pokedex);
   });
 });
-
-// $(document).getElementById("list").onclick = function() {loadCard(element.name)};
