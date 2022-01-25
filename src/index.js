@@ -58,8 +58,10 @@ function displayAll(generation){
   let pokemonArray = generation.results;
   let pokemonList = $("ul#list");
   let ball = "";
+  let sprite = "";
   pokemonArray.forEach(element => {
-    ball +=  (`<li><button id="select-${element.name}">Select</button><button id="show-${element.name}">Show Card</button>  ${element.name}</li>`);
+    sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png`
+    ball +=  `<li><button id="select-${element.name}">Card 1</button><button id="show-${element.name}">Card 2</button> ${element.name} ${sprite}</li>`;
   });
   pokemonList.html(ball);
 }
@@ -90,6 +92,7 @@ async function themAll() {
 
 
 $(document).ready(function() {
+  themAll();
   $(document).click(function(event) {
     // const btn = $(event.target).text();
     const id = event.target.id;

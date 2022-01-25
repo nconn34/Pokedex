@@ -4,133 +4,92 @@
     <title>Pokedex</title>
   </head>
   <body>
-
-    <!-- <table>
-      <tbody>
-        <tr>
-          <td>
-            Card1
-          </td>
-          <td>Card2</td>
-          <td>Lists</td>
-        </tr>
-      </tbody>
-      </table> -->
-
-
-    <div class="container">
-      <h1 class="animate__animated animate__flip">Get Info on a Pokemon!</h1>
-      <label for="pokemonName">Enter a name or index number:</label>
-      <input id="pokemonName" type="text" />
-      <div class="container">
-        <select id="selectHabitat">
-          <option value="default">Select a Habitat</option>
-          <option value=1>Cave</option>
-          <option value=2>Forest</option>
-          <option value=3>Grassland</option>
-        </select>
-        <select id="selectType">
-          <option value="default">Select a Type</option>
-          <option value=1>Normal</option>
-          <option value=2>Flying</option>
-          <option value=3>Fighting</option>
-        </select>
-        <button class="btn-success" id="pokedexID">See list of Pokemon</button>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-      <div class="animate__animated animate__rubberBand">
-        <button class="btn-success" id="pokemonID">
-          Get ID and Info about Pokemon
-        </button>
-        <button class="btn-success" id="catchEm">
-          See them all!
-        </button>
-      </div>
-      </div>
-      <div class="col-md-6">
-      <button class="btn-success" id="pokemonID2">
-        Compare a second pokemon
-      </button>
-      </div>
-      </div>
-      <div class="showErrors"></div>
-      <div class="row">
-        <div class="column">
-
-          <div class="pokemonList">
-            <ul id="list" style = "list-style-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png');">
-            </ul>
-          </div>
-
+    <h1 class="animate__animated animate__flip">Get Info on a Pokemon!</h1>
+    <label for="pokemonName">Enter a name or index number:</label>
+    <input id="pokemonName" type="text"/>
+    <button class="btn-success" id="pokemonID"> Get Info about Pokemon</button>
+    <br>
+    <select id="selectHabitat">
+      <option value="default">Select a Habitat</option>
+      <option value=1>Cave</option>
+      <option value=2>Forest</option>
+      <option value=3>Grassland</option>
+    </select>
+    <select id="selectType">
+      <option value="default">Select a Type</option>
+      <option value=1>Normal</option>
+      <option value=2>Flying</option>
+      <option value=3>Fighting</option>
+    </select>
+    <button class="btn-success" id="pokedexID">See list of Pokemon</button>
+    </div>
   </div>
-        <div class="column">
-        <div class="col-md-6">
-          <div class="front-of-card">
-            <div class="animate__animated animate__flip">
-              <div class="scrolling-wrapper"></div>
-              <div class="card">
-                <div class="card-title"></div>
-                <div class="card-text">
-                  <span class="name"></span> </br>
-                  Height: <span class="height"></span>ft. Weight: <span class="weight"></span>lbs </br>
-                  <div class="showFlavorText"></div> </br>
-                  Type: <span class="type"></span>
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="back-of-card">
-            <div class="animate__animated animate__flip">
-              <div class="card">
-                <div class="card-text">
-                  <span class="emphsis">Abilities:</span> <span class="showAbilities"></span> </br>
-                  <span class="emphsis">Types:</span> <span class="showTypes"></span> </br>
-                  <span class="emphsis">Eggs:</span> <span class="showEggs"></span> </br>
-                  <span class="emphsis">Moves:</span> <span class="showMoves"></span>
-                  <div class="showPokeHabitat"></div>
-                </div>
+  <div class="row1">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="front-of-card">
+         <div class="animate__animated animate__flip">
+          <div class="card">
+            <div class="card-title"></div>
+              <div class="card-text">
+               <span class="name"></span> </br>
+                Height: <span class="height"></span>ft. Weight: <span class="weight"></span>lbs </br>
+                <div class="showFlavorText"></div> </br>
+                Type: <span class="type"></span>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class = "card2">
-            <div class="front-of-card">
-              <div class="animate__animated animate__flip">
-                <div class="card">
-                  <div class="card-title2"></div>
-                  <div class="card-text">
-                    <span class="name2"></span> </br>
-                    Height: <span class="height2"></span>ft. Weight: <span class="weight2"></span>lbs </br>
-                    <div class="showFlavorText2"></div> </br>
-                    Type: <span class="type2"></span>
-                  </div>  
-                </div>
+        <div class="back-of-card">
+         <div class="animate__animated animate__flip">
+            <div class="card">
+              <div class="card-text">
+                <span class="emphsis">Abilities:</span> <span class="showAbilities"></span> </br>
+                <span class="emphsis">Types:</span> <span class="showTypes"></span> </br>
+                <span class="emphsis">Eggs:</span> <span class="showEggs"></span> </br>
+                <span class="emphsis">Moves:</span> <span class="showMoves"></span>
+                <div class="showPokeHabitat"></div>
               </div>
             </div>
           </div>
-          <div class="back-of-card">
-            <div class="animate__animated animate__flip">
-              <div class="card">
-                <div class="card-text">
+        </div>
+      </div>
+    <div class="col-md-6">
+      <div class = "card2">
+        <div class="front-of-card">
+          <div class="animate__animated animate__flip">
+            <div class="card">
+              <div class="card-title2"></div>
+              <div class="card-text">
+                <span class="name2"></span> </br>
+                Height: <span class="height2"></span>ft. Weight: <span class="weight2"></span>lbs </br>
+                <div class="showFlavorText2"></div> </br>
+                Type: <span class="type2"></span>
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div class="back-of-card">
+          <div class="animate__animated animate__flip">
+            <div class="card">
+              <div class="card-text">
                 <span class="emphsis">Abilities:</span> <span class="showAbilities2"></span> </br>
                 <span class="emphsis">Eggs:</span> <span class="showEggs2"></span> </br>
-                  <span class="emphsis">Moves:</span> <span class="showMoves2"></span>
-                  <div class="showPokeHabitat2"></div>
-                </div>
+                <span class="emphsis">Moves:</span> <span class="showMoves2"></span>
+                <div class="showPokeHabitat2"></div>
               </div>
             </div>
           </div>
-      </div>
-
         </div>
-        </div>
-      <div>
-        <p  id="pokedexList"></p>
       </div>
-      <button class="btn-success" id="moreInfo">Flip Card Over!</button>
-    </body>
+    </div>
+  </div>
+   <button class="btn-success" id="moreInfo">Flip Card Over!</button>
+</div>
+  <div class="showErrors"></div>
+  <div class="pokemonList">
+    <ul id="list" style = "list-style-image: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png');">
+    </ul>
+  </div>
+  </body>
 </html>
