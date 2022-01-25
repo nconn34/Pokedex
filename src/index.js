@@ -114,4 +114,8 @@ $(document).ready(function() {
     let pokedex = new Pokedex();
     loadList(pokedex);
   });
+  // $("#li").click(function() {
+  //   ();
+    
+  // })
 });

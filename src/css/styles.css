@@ -64,12 +64,16 @@ h1 {
   width: 48%;
   margin: 2px;
   border: 5px solid black;
+  color: rgb(98, 149, 225);
+  background-color: rgb(255, 94, 0);
 }
 
 #pokemonID2 {
   width: 48%;
   margin: 2px;
   border: 5px solid black;
+  background-color: rgb(255, 94, 0);
+  color: rgb(98, 149, 225);
 }
 
 #moreInfo {
@@ -106,10 +110,6 @@ li {
   height:100px;
 }
 
-/* #catchEm {
-  float: right
-  
-} */
 
 button {
   text-shadow:
@@ -117,11 +117,26 @@ button {
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
-    background-color: aqua;
     border-radius: 25%;
 }
 
 .container {
   text-align: center;
+  text-shadow:
+		-1px -1px 0 white,
+		1px -1px 0 white,
+		-1px 1px 0 white,
+		1px 1px 0 white;
 
 }
+
+.btn-success {
+  background-color: rgb(255, 94, 0);
+  color: rgb(98, 149, 225);
+}
+/* .card {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+} */

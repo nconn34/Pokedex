@@ -2,7 +2,7 @@
 
 #### By _**Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather.**_
 
-#### _Pokedex allows a user to find information about any Pokemon. _
+#### _Pokedex allows a user to find information about the first 151 OG Pokemon. _
 
 
 ## Technologies Used
@@ -11,10 +11,11 @@
 * _CSS & Bootstrap_
 * _Javascript & jQuery_
 * _NPM & Webpack_
+* _Postman_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_This was a team Epicodus project that showcases our knowledge of intermediate Javascript. We put together a working webpack development environment for programming this project. This Pokedex application will allow a user to search by a number of different filters on the kind of pokemon they would like to view. Another option is the user could simply put the index number or name of pokemon of their choice in the search form. Lastly, there is also an option to compare two cards side by side.  
 
 ## Setup/Installation Requirements
 
@@ -28,8 +29,6 @@ _{This is a detailed description of your application. Give as much detail as nee
 * Make sure you test your API calls in Postman before adding them to your code.
 * Check documentation on your API key to see endpoints and more useful information about your API.
 * Run "npm run start" to view in browser.
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
 
 ## Known Bugs
 
