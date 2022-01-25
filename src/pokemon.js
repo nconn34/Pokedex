@@ -1,4 +1,4 @@
-export class PokemonSolo{
+export class Pokemon{
   constructor(name) {
     this.name = name;
   }

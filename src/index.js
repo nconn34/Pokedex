@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
-import { PokemonSolo } from './pokemon.js';
+import { Pokemon } from './pokemon.js';
 import { Pokedex, CatchEmAll } from './pokedex.js';
 import 'animate.css';
 
@@ -18,33 +18,43 @@ function clearFields() {
   $('.showHabitat').text("");
   $('.showFlavorText').text("");
 }
+
+function capitalize(string) {
+  const letters = string.split("");
+  const capitolLetter = letters[0].toUpperCase();
+  letters.shift()
+  letters.unshift(capitolLetter)
+  const capitolWord = letters.join("")
+  console.log(capitolWord)
+  return capitolWord
+}
   
 async function loadCard(pokemon) {
   await pokemon.getInfo();
-  $('.name').text(pokemon.name);
+  $('.name').text(capitalize(pokemon.name));
   $('.card-title').html(`<img src=${pokemon.picture}>`);
-  $('.type').text(pokemon.type);
+  $('.type').text(capitalize(pokemon.type));
   $('.height').text(pokemon.height);
   $('.weight').text(pokemon.weight);
-  $('.showAbilities').text(pokemon.abilities);
-  $('.showMoves').text(pokemon.moves);
-  $('.showTypes').text(pokemon.types);
-  $('.showEggs').text(pokemon.eggs);
+  $('.showAbilities').text(capitalize(pokemon.abilities));
+  $('.showMoves').text(capitalize(pokemon.moves));
+  $('.showTypes').text(capitalize(pokemon.types));
+  $('.showEggs').text(capitalize(pokemon.eggs));
   $('.showPokeHabitat').text(`Habitat: ${pokemon.habitat}`);
   $('.showFlavorText').text(`Prof. Oak Says: ${pokemon.flavorText}`);
 }
 
 async function loadCard2(pokemon2) {
   await pokemon2.getInfo();
-  $('.name2').text(pokemon2.name);
+  $('.name2').text(capitalize(pokemon2.name));
   $('.card-title2').html(`<img src=${pokemon2.picture}>`);
-  $('.type2').text(pokemon2.type);
+  $('.type2').text(capitalize(pokemon2.type));
   $('.height2').text(pokemon2.height);
   $('.weight2').text(pokemon2.weight);
-  $('.showAbilities2').text(pokemon2.abilities);
-  $('.showMoves2').text(pokemon2.moves);
-  $('.showTypes2').text(pokemon2.types);
-  $('.showEggs2').text(pokemon2.eggs);
+  $('.showAbilities2').text(capitalize(pokemon2.abilities));
+  $('.showMoves2').text(capitalize(pokemon2.moves));
+  $('.showTypes2').text(capitalize(pokemon2.types));
+  $('.showEggs2').text(capitalize(pokemon2.eggs));
   $('.showPokeHabitat2').text(`Habitat: ${pokemon2.habitat}`);
   $('.showFlavorText2').text(`Prof. Oak Says: ${pokemon2.flavorText}`);
 }
@@ -85,12 +95,13 @@ async function themAll() {
 $(document).ready(function() {
   $('#pokemonID').click(function() {
     // clearFields();
-    let pokemon = new PokemonSolo($('#pokemonName').val());
+    let pokeInput = $('#pokemonName').val()
+    let pokemon = new Pokemon(pokeInput.toLowerCase());
     loadCard(pokemon);
   });
   $('#pokemonID2').click(function() {
-    //clearFields();
-    let pokemon2 = new PokemonSolo($('#pokemonName').val());
+    let pokeInput = $('#pokemonName').val()
+    let pokemon2 = new Pokemon(pokeInput.toLowerCase());
     loadCard2(pokemon2);
   });
   $('#moreInfo').click(function() {

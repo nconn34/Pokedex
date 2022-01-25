@@ -26,10 +26,17 @@ h1 {
   font-weight: bold;
   font-style: italic;
   color: rgb(233, 73, 10);
+  text-shadow:
+		-5px -1px 0 #000,
+		1px -1px 0 #000,
+		-5px 1px 0 #000,
+		1px 1px 0 #000;
+	
 }
 .card {
   border: 5px solid black;
   height: 700px;
+  
 }
 
 .card-text {
@@ -42,10 +49,15 @@ h1 {
 .emphasis {
   font-family: Pokemon solid;
   font-weight: bold;
+  
 }
 
 .back-of-card {
   display: none;
+  height: 10em;
+  /* display: flex; */
+  /* align-items: center; */
+
 }
 
 #pokemonID {
@@ -88,4 +100,28 @@ li {
   padding-left: 44px;
   padding-top: 3px;
   display: block;
+  cursor:pointer;
+  border:none;
+  width:100px;
+  height:100px;
+}
+
+/* #catchEm {
+  float: right
+  
+} */
+
+button {
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+    background-color: aqua;
+    border-radius: 25%;
+}
+
+.container {
+  text-align: center;
+
 }
