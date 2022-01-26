@@ -49,3 +49,18 @@ export class CatchEmAll{
       });
   }
 }
+
+export class Sprites{
+  static async showSprites(number){
+      return fetch(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`)
+      .then(function(response) {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json();
+      })
+      .catch(function(error) {
+        return error;
+      })
+  }
+}

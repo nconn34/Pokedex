@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import $ from 'jquery';
 import { PokemonSolo } from './pokemon.js';
-import { Pokedex, CatchEmAll } from './pokedex.js';
+import { Pokedex, CatchEmAll, Sprites } from './pokedex.js';
 import 'animate.css';
 
 function clearFields() {
@@ -54,17 +54,21 @@ function flipCard() {
   $('.back-of-card').toggle();
 }
 
-function displayAll(generation){
+function displayAll(generation, sprites){
   let pokemonArray = generation.results;
   let pokemonList = $("ul#list");
   let ball = "";
   let sprite = "";
   pokemonArray.forEach(element => {
-    sprite = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png`
-    ball +=  `<li><button id="select-${element.name}">Card 1</button><button id="show-${element.name}">Card 2</button> ${element.name} ${sprite}</li>`;
+    ball +=  `<li><button id="select-${element.name}">Card 1</button><button id="show-${element.name}">Card 2</button> ${element.name}</li>`;
   });
-  pokemonList.html(ball);
+  for (let i = 0; i <= 150; i++){
+  sprite += "<li>" + sprites.number[i] + "</li>"
+  console.log(sprite);
+  }
+  pokemonList.html(ball, sprite);
 }
+
 
 async function loadList(pokedex) {
   if($('#selectHabitat').val() !== "default") {
@@ -88,6 +92,11 @@ async function loadList(pokedex) {
 async function themAll() {
   const generation = await CatchEmAll.caughtEm();
   displayAll(generation);
+}
+
+async function displaySprites() {
+  const sprite = await Sprites.showSprites();
+  displayAll(sprite);
 }
 
 
@@ -121,6 +130,7 @@ $(document).ready(function() {
     // let pokedex = new Pokedex();
     // loadDefault(pokedex);
     themAll();
+    // displaySprites();
   });
   $("#pokedexID").click(function() {
     let pokedex = new Pokedex();
