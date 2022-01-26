@@ -6,30 +6,28 @@ import { PokemonSolo } from './pokemon.js';
 import { Pokedex } from './pokedex.js';
 import 'animate.css';
 
-function clearFields() {
-  $('#pokemon').val("");
-  $('.showErrors').text("");
-  $('.showName').text("");
-  $('.showImg').text("");
-  $('.showAbilities').text("");
-  $('.showMoves').text("");
-  $('.showTypes').text("");
-  $('.showEggs').text(""); 
-  $('.showHabitat').text("");
-  $('.showFlavorText').text("");
+
+function capitalize(string) {
+  const letters = string.split("");
+  const capitolLetter = letters[0].toUpperCase();
+  letters.shift()
+  letters.unshift(capitolLetter)
+  const capitolWord = letters.join("")
+  console.log(capitolWord)
+  return capitolWord
 }
   
 async function loadCard(pokemon, card) {
   await pokemon.getInfo();
-  $('.name' + card).text(pokemon.name);
+  $('.name' + card).text(capitalize(pokemon.name));
   $('.card-title' + card).html(`<img src=${pokemon.picture}>`);
-  $('.type' + card).text(pokemon.type);
+  $('.type' + card).text(capitalize(pokemon.type));
   $('.height' + card).text(pokemon.height);
   $('.weight' + card).text(pokemon.weight);
-  $('.showAbilities' + card).text(pokemon.abilities);
-  $('.showMoves' + card).text(pokemon.moves);
-  $('.showTypes' + card).text(pokemon.types);
-  $('.showEggs' + card).text(pokemon.eggs);
+  $('.showAbilities' + card).text(capitalize(pokemon.abilities));
+  $('.showMoves' + card).text(capitalize(pokemon.moves));
+  $('.showTypes' + card).text(capitalize(pokemon.types));
+  $('.showEggs' + card).text(capitalize(pokemon.eggs));
   $('.showPokeHabitat' + card).text(`Habitat: ${pokemon.habitat}`);
   $('.showFlavorText' + card).text(`Prof. Oak Says: ${pokemon.flavorText}`);
   $('.card' + card).show();
@@ -81,12 +79,14 @@ $(document).ready(function() {
     }
   });
   $('#pokemonID').click(function() {
-    let pokemon = new PokemonSolo($('#pokemonName').val());
+    let pokeInput = $('#pokemonName').val()
+    let pokemon = new PokemonSolo(pokeInput.toLowerCase());
     loadCard(pokemon,"");
   });
   $('#pokemonID2').click(function() {
-    let pokemon = new PokemonSolo($('#pokemonName').val());
-    loadCard(pokemon,"2");
+    let pokeInput = $('#pokemonName').val()
+    let pokemon2 = new PokemonSolo(pokeInput.toLowerCase());
+    loadCard(pokemon2,"2");
   });
   $('#moreInfo').click(function() {
     flipCard();
@@ -96,4 +96,8 @@ $(document).ready(function() {
     let pokedex = new Pokedex();
     loadList(pokedex);
   });
+  // $("#li").click(function() {
+  //   ();
+    
+  // })
 });

@@ -1,8 +1,8 @@
 # _Pokedex_
 
-#### By _**Brit Wallace, Amy Young, and Nathan Conn**_
+#### By **Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather.**
 
-#### _Pokedex allows a user to find information about any Pokemon. _
+#### Pokedex allows a user to find information about the first 151 OG Pokemon. 
 
 
 ## Technologies Used
@@ -11,20 +11,24 @@
 * _CSS & Bootstrap_
 * _Javascript & jQuery_
 * _NPM & Webpack_
+* _Postman_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+This was a team Epicodus project that showcases our knowledge of intermediate Javascript. We put together a working webpack development environment for programming this project. This Pokedex application will allow a user to search by a number of different filters on the kind of pokemon they would like to view. Another option is the user could simply put the index number or name of pokemon of their choice in the search form. Lastly, there is also an option to compare two cards side by side.  
 
 ## Setup/Installation Requirements
 
-* _Clone this repository._
-* _Open in your text editor of choice._
-* _Run "npm instal."_
-* _Run "npm run build."_
-* _Run "npm run start" to see in browser._
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+* Clone repository.
+* Open code in your favorite text editor. I use VS Code.
+* Run "npm install." in your terminal.
+* Followed by "run npm build."
+* [Find a free API here at this link](https://pokeapi.co)
+* Save your API in a ".env file" for safe keeps. Then add this to your .gitignore file.
+* Add "API_KEY=Your key here" to the .env file. 
+* Make sure you test your API calls in Postman before adding them to your code.
+* Check documentation on your API key to see endpoints and more useful information about your API.
+* Run "npm run start" to view in browser.
 
 ## Known Bugs
 
@@ -33,12 +37,9 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 ## Contact Me
 
-_Let me know if you run into any issues or have questions, ideas or concerns:_
-_britwallace888@gmail.com  nconn34@gmail.com  
-_
+_Let me know if you run into any issues or have questions, ideas, or concerns:_
+_britwallace888@gmail.com or nconn34@gmail.com_ 
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
-
-Copyright (c) _January/9/2022_ _Brit Wallace, Amy Young, and Nathan Conn_
+Copyright (c) _January/9/2022_ _Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather._

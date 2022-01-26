@@ -37,13 +37,20 @@ h1 {
   font-size: 50px;
   font-weight: bold;
   font-style: italic;
+  color: rgb(233, 73, 10);
+  text-shadow:
+		-5px -1px 0 #000,
+		1px -1px 0 #000,
+		-5px 1px 0 #000,
+		1px 1px 0 #000;
+	
 }
 
-
-.emphsis {
-  font-family: Pokemon solid;
+.card {
+  border: 5px solid black;
+  height: 700px;
+  
 }
-
 
 .card-text {
   font-family: HIRO MISAKE;
@@ -54,22 +61,32 @@ h1 {
 
 .emphasis {
   font-family: Pokemon solid;
+  font-weight: bold;
+  
 }
 
 .back-of-card {
   display: none;
+  height: 10em;
+  /* display: flex; */
+  /* align-items: center; */
+
 }
 
 #pokemonID {
   width: 48%;
   margin: 2px;
   border: 5px solid black;
+  color: rgb(98, 149, 225);
+  background-color: rgb(255, 94, 0);
 }
 
 #pokemonID2 {
   width: 48%;
   margin: 2px;
   border: 5px solid black;
+  background-color: rgb(255, 94, 0);
+  color: rgb(98, 149, 225);
 }
 
 #moreInfo {
@@ -81,11 +98,52 @@ h1 {
 .card-title,
 .card-title2 {
   margin: auto;
-  height: auto;
   display: block;
+  display: flex;
+  flex-flow: row wrap;
+  height: 400px;
 }
 .showFlavorText,
 .showFlavorText2 {
   font-style: italic;
   font-size: 18px;
 }
+
+li {
+  background: url("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png")
+    no-repeat left top;
+  height: 54px;
+  padding-left: 44px;
+  padding-top: 3px;
+  display: block;
+  cursor:pointer;
+  border:none;
+  width:100px;
+  height:100px;
+}
+
+
+button {
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+    border-radius: 25%;
+}
+
+.container {
+  text-align: center;
+  text-shadow:
+		-1px -1px 0 white,
+		1px -1px 0 white,
+		-1px 1px 0 white,
+		1px 1px 0 white;
+
+}
+
+.btn-success {
+  background-color: rgb(255, 94, 0);
+  color: rgb(98, 149, 225);
+}
+
