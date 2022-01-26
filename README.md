@@ -15,7 +15,7 @@
 
 ## Description
 
-This was a team Epicodus project that showcases our knowledge of intermediate Javascript. We put together a working webpack development environment for programming this project. This Pokedex application will allow a user to search by a number of different filters on the kind of pokemon they would like to view. Another option is the user could simply put the index number or name of pokemon of their choice in the search form. Lastly, there is also an option to compare two cards side by side.  
+This was a team Epicodus project that showcases our knowledge of intermediate Javascript. We put together a working webpack development environment for programming this project. This Pokedex application will allow a user to search by a number of different filters on the kind of pokemon they would like to view. Another option is the user could simply put the index number or name of pokemon of their choice in the search form. Lastly, there is also an option to compare two cards side by side. 
 
 ## Setup/Installation Requirements
 
@@ -29,15 +29,16 @@ This was a team Epicodus project that showcases our knowledge of intermediate Ja
 * Make sure you test your API calls in Postman before adding them to your code.
 * Check documentation on your API key to see endpoints and more useful information about your API.
 * Run "npm run start" to view in browser.
+* To add the pokemon font [follow this link](https://fontmeme.com/pokemon-font/) and download to your local computer.
+* The other font we used can be found at [this link](https://www.dafont.com/mtheme.php?id=2). Look under foreign look and you will see the Hiro Misake font there.
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* _List bugs here_
 
 ## Contact Me
 
-_Let me know if you run into any issues or have questions, ideas, or concerns:_
+_Let us know if you run into any issues or have questions, ideas, or concerns:_
 _britwallace888@gmail.com or nconn34@gmail.com_ 
 
 ## License
