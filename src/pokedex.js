@@ -6,7 +6,7 @@ export class Pokedex {
     this.displayList = [];
   }
 
-  async makeList() {
+  async filterList() {
     let lists = [];
     let numLists = 0;
       
@@ -19,15 +19,21 @@ export class Pokedex {
     }else if(this.moveList.length >0) {
       lists[numLists] = this.moveList;
       numLists++;
-    }else {
-      this.displayList = await this.makeArray("pokemon?limit=151","","results");
     }
 
-    
-    if(numLists === 1) {
-      this.displayList = lists[0];
-    }
-    console.log(numLists + "lists");
+  //   for(let i = 0; i < numLists; i++) {
+  //     let filtered = [];
+  //     lists[i].forEach((item) => {
+  //       if(lists[i+1].includes(item)) {
+  //         filtered.push(item);
+  //       }
+  //     })
+  //   }
+  //   }
+
+  //   if(numLists === 1) {
+  //     this.displayList = lists[0];
+  //   }
   }
 
   async listFromAPI(apiPath, selection) {
@@ -53,5 +59,4 @@ export class Pokedex {
     });
     return listArray;
   }
-  
 }

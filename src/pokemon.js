@@ -1,4 +1,4 @@
-export class Pokemon{
+export class PokemonSolo{
   constructor(name) {
     this.name = name;
   }
@@ -37,7 +37,7 @@ function listItems(array, intermediateBranch) {
     } else {
       list += item.name + ", ";
     }
-    if(index>4) {array.length=index+1;} // terrible & irresponsible hack to break a forEach loop
+    if(index>10) {array.length=index+1;} // terrible & irresponsible hack to break a forEach loop
   });
   list = list.substring(0,list.length-2);
   return list;

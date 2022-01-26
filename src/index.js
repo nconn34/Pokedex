@@ -13,7 +13,6 @@ function capitalize(string) {
   letters.shift()
   letters.unshift(capitolLetter)
   const capitolWord = letters.join("")
-  console.log(capitolWord)
   return capitolWord
 }
   
@@ -45,7 +44,8 @@ function showList(pokemonArray) {
   let pokemonList = $("ul#list");
   let ball = "";
   pokemonArray.forEach(element => {
-    ball +=  (`<li><button id="select-${element}">Select</button><button id="show-${element}">Show Card</button>  ${element}</li>`);
+     let displayName =  capitalize(element);
+    ball +=  (`<div class="row"><li><br>${displayName}<button id="show-${element}">Show left</button><button id="select-${element}">Show right</button></li></div>`);
   });
   pokemonList.html(ball);
 }
@@ -60,8 +60,10 @@ async function loadList(pokedex) {
   }
   if($('#selectMove').val() !== "default") {
     pokedex.moveList = await pokedex.makeArray($('#selectMove').val(), "move/","learned_by_pokemon");
+  } else {
+    pokedex.displayList = await pokedex.makeArray("pokemon?limit=151","","results");
   }
-  pokedex.makeList();
+  pokedex.filterList();
   showList(pokedex.displayList);
 }
 
@@ -71,7 +73,8 @@ $(document).ready(function() {
     const target = event.target;
     if(target.type === "submit") {
       if(target.id.substring(0,6) === "select") {
-        console.log("select one");
+        let pokemon = new PokemonSolo(target.id.substring(7));
+        loadCard(pokemon,"2");
       } else if(target.id.substring(0,4) === "show") {
         let pokemon = new PokemonSolo(target.id.substring(5));
         loadCard(pokemon,"");
