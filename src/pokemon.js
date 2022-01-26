@@ -4,7 +4,6 @@ export class PokemonSolo{
   }
 
   async callAPI(path) {
-    console.log(path & this.name);
     return fetch(`https://pokeapi.co/api/v2${path}${this.name}`)
       .then(function(response) {
         if (!response.ok) {throw Error(response.statusText);}

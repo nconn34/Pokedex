@@ -19,35 +19,22 @@ function clearFields() {
   $('.showFlavorText').text("");
 }
   
-async function loadCard(pokemon) {
+async function loadCard(pokemon, card) {
   await pokemon.getInfo();
-  $('.name').text(pokemon.name);
-  $('.card-title').html(`<img src=${pokemon.picture}>`);
-  $('.type').text(pokemon.type);
-  $('.height').text(pokemon.height);
-  $('.weight').text(pokemon.weight);
-  $('.showAbilities').text(pokemon.abilities);
-  $('.showMoves').text(pokemon.moves);
-  $('.showTypes').text(pokemon.types);
-  $('.showEggs').text(pokemon.eggs);
-  $('.showPokeHabitat').text(`Habitat: ${pokemon.habitat}`);
-  $('.showFlavorText').text(`Prof. Oak Says: ${pokemon.flavorText}`);
+  $('.name' + card).text(pokemon.name);
+  $('.card-title' + card).html(`<img src=${pokemon.picture}>`);
+  $('.type' + card).text(pokemon.type);
+  $('.height' + card).text(pokemon.height);
+  $('.weight' + card).text(pokemon.weight);
+  $('.showAbilities' + card).text(pokemon.abilities);
+  $('.showMoves' + card).text(pokemon.moves);
+  $('.showTypes' + card).text(pokemon.types);
+  $('.showEggs' + card).text(pokemon.eggs);
+  $('.showPokeHabitat' + card).text(`Habitat: ${pokemon.habitat}`);
+  $('.showFlavorText' + card).text(`Prof. Oak Says: ${pokemon.flavorText}`);
+  $('.card' + card).show();
 }
 
-async function loadCard2(pokemon2) {
-  await pokemon2.getInfo();
-  $('.name2').text(pokemon2.name);
-  $('.card-title2').html(`<img src=${pokemon2.picture}>`);
-  $('.type2').text(pokemon2.type);
-  $('.height2').text(pokemon2.height);
-  $('.weight2').text(pokemon2.weight);
-  $('.showAbilities2').text(pokemon2.abilities);
-  $('.showMoves2').text(pokemon2.moves);
-  $('.showTypes2').text(pokemon2.types);
-  $('.showEggs2').text(pokemon2.eggs);
-  $('.showPokeHabitat2').text(`Habitat: ${pokemon2.habitat}`);
-  $('.showFlavorText2').text(`Prof. Oak Says: ${pokemon2.flavorText}`);
-}
 
 function flipCard() {
   $('.front-of-card').toggle();
@@ -67,50 +54,43 @@ function showList(pokemonArray) {
 async function loadList(pokedex) {
   if($('#selectHabitat').val() !== "default") {
     pokedex.habitatList = await pokedex.makeArray($('#selectHabitat').val(), "pokemon-habitat/","pokemon_species");
-    showList(pokedex.habitatList);
   }
   if($('#selectType').val() !== "default") {
-    pokedex.typeList = await pokedex.makeArray($('#selectType').val(), "type","pokemon/","pokemon");
-    showList(pokedex.typeList);
+    pokedex.typeList = await pokedex.makeArray($('#selectType').val(), "type/", "pokemon","pokemon");
   }
+  if($('#selectMove').val() !== "default") {
+    pokedex.moveList = await pokedex.makeArray($('#selectMove').val(), "move/","learned_by_pokemon");
+  }
+  pokedex.makeList();
+  showList(pokedex.displayList);
 }
 
-async function loadDefault(pokedex) {
-  pokedex.fullList = await pokedex.makeArray("pokemon?limit=151","","results");
-  showList(pokedex.fullList);
-}
 
 $(document).ready(function() {
   $(document).click(function(event) {
-    // console.log($(event.target).text());
-    const id = event.target.id;
-    if(event.target.type === "submit") {
-      if(id.substring(0,6) === "select") {
-        console.log(id & " for team");
-      } else(id.substring(0,4) === "show"); {
-        let pokemon = new PokemonSolo(id.substring(5));
-        console.log("card for " & id)
-        loadCard(pokemon);
+    const target = event.target;
+    if(target.type === "submit") {
+      if(target.id.substring(0,6) === "select") {
+        console.log("select one");
+      } else if(target.id.substring(0,4) === "show") {
+        let pokemon = new PokemonSolo(target.id.substring(5));
+        loadCard(pokemon,"");
       }
     }
   });
   $('#pokemonID').click(function() {
-    // clearFields();
     let pokemon = new PokemonSolo($('#pokemonName').val());
-    loadCard(pokemon);
+    loadCard(pokemon,"");
   });
   $('#pokemonID2').click(function() {
-    let pokemon2 = new PokemonSolo($('#pokemonName').val());
-    loadCard2(pokemon2);
+    let pokemon = new PokemonSolo($('#pokemonName').val());
+    loadCard(pokemon,"2");
   });
   $('#moreInfo').click(function() {
     flipCard();
   });
-  $('#catchEm').click(function() {
-    let pokedex = new Pokedex();
-    loadDefault(pokedex);
-  });
-  $("#pokedexID").click(function() {
+  
+  $("#filterList").click(function() {
     let pokedex = new Pokedex();
     loadList(pokedex);
   });
