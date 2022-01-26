@@ -1,8 +1,8 @@
 # _Pokedex_
 
-#### By _**Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather.**_
+#### By **Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather.**
 
-#### _Pokedex allows a user to find information about the first 151 OG Pokemon. _
+#### Pokedex allows a user to find information about the first 151 OG Pokemon. 
 
 
 ## Technologies Used
@@ -15,7 +15,7 @@
 
 ## Description
 
-_This was a team Epicodus project that showcases our knowledge of intermediate Javascript. We put together a working webpack development environment for programming this project. This Pokedex application will allow a user to search by a number of different filters on the kind of pokemon they would like to view. Another option is the user could simply put the index number or name of pokemon of their choice in the search form. Lastly, there is also an option to compare two cards side by side.  
+This was a team Epicodus project that showcases our knowledge of intermediate Javascript. We put together a working webpack development environment for programming this project. This Pokedex application will allow a user to search by a number of different filters on the kind of pokemon they would like to view. Another option is the user could simply put the index number or name of pokemon of their choice in the search form. Lastly, there is also an option to compare two cards side by side.  
 
 ## Setup/Installation Requirements
 
@@ -37,12 +37,9 @@ _This was a team Epicodus project that showcases our knowledge of intermediate J
 
 ## Contact Me
 
-_Let me know if you run into any issues or have questions, ideas or concerns:_
-_britwallace888@gmail.com or nconn34@gmail.com_  
-_
+_Let me know if you run into any issues or have questions, ideas, or concerns:_
+_britwallace888@gmail.com or nconn34@gmail.com_ 
 
 ## License
-
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
 
 Copyright (c) _January/9/2022_ _Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather._
