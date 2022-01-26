@@ -42,6 +42,7 @@ function flipCard() {
 }
 
 
+
 function showList(pokemonArray) {
   let pokemonList = $("ul#list");
   let ball = "";
@@ -50,6 +51,7 @@ function showList(pokemonArray) {
   });
   pokemonList.html(ball);
 }
+
 
 async function loadList(pokedex) {
   if($('#selectHabitat').val() !== "default") {
