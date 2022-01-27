@@ -24,8 +24,6 @@ This was a team Epicodus project that showcases our knowledge of intermediate Ja
 * Run "npm install." in your terminal.
 * Followed by "run npm build."
 * [Find a free API here at this link](https://pokeapi.co)
-* Save your API in a ".env file" for safe keeps. Then add this to your .gitignore file.
-* Add "API_KEY=Your key here" to the .env file. 
 * Make sure you test your API calls in Postman before adding them to your code.
 * Check documentation on your API key to see endpoints and more useful information about your API.
 * Run "npm run start" to view in browser.

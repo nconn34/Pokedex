@@ -1,6 +1,6 @@
 body {
   background-color: rgb(243, 243, 92);
-  margin: 0;
+  margin: 50px;
   font-family: Pokemon Solid;
   font-weight: 400;
 }
@@ -27,9 +27,9 @@ h1 {
   font-size: 54px;
 }
 
-.pokemonID {
+/* .pokemonID {
   font-family: Pokemon Hollow;
-}
+} */
 
 .name,
 .name2 {
@@ -48,7 +48,6 @@ h1 {
 
 .card {
   border: 5px solid black;
-  height: 700px;
   
 }
 
@@ -67,14 +66,13 @@ h1 {
 
 .back-of-card {
   display: none;
-  height: 10em;
   /* display: flex; */
   /* align-items: center; */
 
 }
 
 #pokemonID {
-  width: 48%;
+  width: 22%;
   margin: 2px;
   border: 5px solid black;
   color: rgb(98, 149, 225);
@@ -82,7 +80,7 @@ h1 {
 }
 
 #pokemonID2 {
-  width: 48%;
+  width: 20%;
   margin: 2px;
   border: 5px solid black;
   background-color: rgb(255, 94, 0);
@@ -90,10 +88,16 @@ h1 {
 }
 
 #moreInfo {
-  width: 100%;
+ width: 100%;
+ border: 5px solid black;
+ margin: 2px;
+}
+
+#filterList {
+  width: 25%;
   border: 5px solid black;
   margin: 2px;
-}
+ }
 
 .card-title,
 .card-title2 {
@@ -101,7 +105,7 @@ h1 {
   display: block;
   display: flex;
   flex-flow: row wrap;
-  height: 400px;
+  height: 300px;
 }
 .showFlavorText,
 .showFlavorText2 {
@@ -120,6 +124,7 @@ li {
   border:none;
   width:100px;
   height:100px;
+  text-indent: 10%;
 }
 
 
@@ -147,3 +152,11 @@ h1 {
   color: rgb(98, 149, 225);
 }
 
+
+/* #list {
+  text-shadow:
+		-1px -1px 0 rgb(110, 21, 21),
+		1px -1px 0 rgb(110, 21, 21),
+		-1px 1px 0 rgb(110, 21, 21),
+		1px 1px 0 rgb(110, 21, 21);
+} */

@@ -4,30 +4,7 @@ export class Pokedex {
     this.typeList = [];
     this.moveList = [];
     this.displayList = [];
-  }
-
-  async makeList() {
-    let lists = [];
-    let numLists = 0;
-      
-    if(this.habitatList.length >0) {
-      lists[numLists] = this.habitatList;
-      numLists++;
-    }else if(this.typeList.length >0) {
-      lists[numLists] = this.typeList;
-      numLists++;
-    }else if(this.moveList.length >0) {
-      lists[numLists] = this.moveList;
-      numLists++;
-    }else {
-      this.displayList = await this.makeArray("pokemon?limit=151","","results");
-    }
-
-    
-    if(numLists === 1) {
-      this.displayList = lists[0];
-    }
-    console.log(numLists + "lists");
+    this.listFilters = 0;
   }
 
   async listFromAPI(apiPath, selection) {
@@ -51,7 +28,37 @@ export class Pokedex {
         listArray.push(item.name);
       }
     });
+    this.listFilters++;
     return listArray;
   }
-  
+
+  filterList() {
+    let lists = [];
+    if(this.habitatList.length>0) {lists.push(this.habitatList);}
+    if(this.typeList.length >0) {lists.push(this.typeList);}
+    if(this.moveList.length >0) {lists.push(this.moveList);}
+
+    if(this.listFilters === 3) {
+      lists[1] = combineFilters(lists[1],lists[2]);
+      this.listFilters--;
+    }
+    if(this.listFilters === 2) {
+      lists[0] = combineFilters(lists[0],lists[1]);
+      this.listFilters--;
+    }
+    if(this.listFilters === 1) {
+      this.displayList = lists[0];
+    }
+  }
+
+}
+
+function combineFilters(arr1,arr2) {
+  let common = [];
+  arr1.forEach((item) => {
+    if(arr2.includes(item)) {
+      common.push(item);
+    }
+  });
+  return common;
 }
