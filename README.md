@@ -11,6 +11,7 @@
 * _CSS & Bootstrap_
 * _Javascript & jQuery_
 * _NPM & Webpack_
+* _Pokeapi.co
 * _Postman_
 
 ## Description
@@ -20,15 +21,12 @@ This was a team Epicodus project that showcases our knowledge of intermediate Ja
 ## Setup/Installation Requirements
 
 * Clone repository.
-* Open code in your favorite text editor. I use VS Code.
 * Run "npm install." in your terminal.
 * Followed by "run npm build."
 * [Find a free API here at this link](https://pokeapi.co)
 * Make sure you test your API calls in Postman before adding them to your code.
-* Check documentation on your API key to see endpoints and more useful information about your API.
-* Run "npm run start" to view in browser.
-* To add the pokemon font [follow this link](https://fontmeme.com/pokemon-font/) and download to your local computer.
-* The other font we used can be found at [this link](https://www.dafont.com/mtheme.php?id=2). Look under foreign look and you will see the Hiro Misake font there.
+* Read the documentation on the API website as different URL's will yield different returns.
+* Run "npm start" in the terminal to view in browser.
 
 ## Known Bugs
 
