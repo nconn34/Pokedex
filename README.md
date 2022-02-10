@@ -1,6 +1,6 @@
 # _Pokedex_
 
-#### By **Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather.**
+#### By **Nathan Conn, Brit Wallace, Ryan Rendon, and Karl Starkweather.**
 
 #### Pokedex allows a user to find information about the any Pokemon. User can compare any two Pokemon in detail side by side. There are search filters to search by particular characteristics.
 
