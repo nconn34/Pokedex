@@ -37,7 +37,7 @@ This was a team Epicodus project that showcases our knowledge of intermediate Ja
 ## Contact Me
 
 _Let us know if you run into any issues or have questions, ideas, or concerns:_
- nconn34@gmail.com_ or _britwallace888@gmail.com
+ nconn34@gmail.com or _britwallace888@gmail.com
 
 ## License
 
