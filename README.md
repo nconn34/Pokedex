@@ -37,8 +37,8 @@ This was a team Epicodus project that showcases our knowledge of intermediate Ja
 ## Contact Me
 
 _Let us know if you run into any issues or have questions, ideas, or concerns:_
-_britwallace888@gmail.com or nconn34@gmail.com_ 
+ nconn34@gmail.com_ or _britwallace888@gmail.com
 
 ## License
 
-Copyright (c) _January/9/2022_ _Brit Wallace, Nathan Conn, Ryan Rendon, and Karl Starkweather._
+Copyright (c) _January/9/2022_ _ Nathan Conn, Brit Wallace, Ryan Rendon, and Karl Starkweather._
